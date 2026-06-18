@@ -1,0 +1,45 @@
+[2026-06-17T20:11:00,411][ERROR][o.w.a.d.Dictionary       ] [DESKTOP-8G2CN5U] ik-analyzerjava.io.FileNotFoundException: D:\Program Files\elasticsearch-9.4.2\config\analysis-ik\IKAnalyzer.cfg.xml (绯荤粺鎵句笉鍒版寚瀹氱殑璺緞銆?
+        at java.base/java.io.FileInputStream.open0(Native Method)
+        at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+        at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+        at org.wltea.analyzer.dic.Dictionary.<init>(Dictionary.java:108)
+        at org.wltea.analyzer.dic.Dictionary.initial(Dictionary.java:146)
+
+See logs for more details.
+
+
+[2026-06-17T20:11:00,414][ERROR][o.w.a.d.Dictionary       ] [DESKTOP-8G2CN5U] ik-analyzer: Main Dict not foundjava.io.FileNotFoundException: component [analysis-ik], module [ALL-UNNAMED], class [class org.wltea.analyzer.dic.Dictionary], entitlement [file], operation [read], path [D:\Program%20Files\elasticsearch-9.4.2\plugins\analysis-ik\config\main.dic]
+        at org.elasticsearch.entitlement@9.4.2/org.elasticsearch.entitlement.config.FileInstrumentation.lambda$init$9(FileInstrumentation.java:340)
+        at org.elasticsearch.entitlement@9.4.2/org.elasticsearch.entitlement.runtime.registry.InstrumentationRegistryImpl.check$(InstrumentationRegistryImpl.java:46)
+        at java.base/java.io.FileInputStream.<init>(FileInputStream.java)
+        at org.wltea.analyzer.dic.Dictionary.loadDictFile(Dictionary.java:194)
+        at org.wltea.analyzer.dic.Dictionary.loadMainDict(Dictionary.java:385)
+
+See logs for more details.
+
+[2026-06-17T20:11:00,417][ERROR][o.w.a.d.Dictionary       ] [DESKTOP-8G2CN5U] ik-analyzer: Surname not foundjava.io.FileNotFoundException: component [analysis-ik], module [ALL-UNNAMED], class [class org.wltea.analyzer.dic.Dictionary], entitlement [file], operation [read], path [D:\Program%20Files\elasticsearch-9.4.2\plugins\analysis-ik\config\surname.dic]
+        at org.elasticsearch.entitlement@9.4.2/org.elasticsearch.entitlement.config.FileInstrumentation.lambda$init$9(FileInstrumentation.java:340)
+        at org.elasticsearch.entitlement@9.4.2/org.elasticsearch.entitlement.runtime.registry.InstrumentationRegistryImpl.check$(InstrumentationRegistryImpl.java:46)
+        at java.base/java.io.FileInputStream.<init>(FileInputStream.java)
+        at org.wltea.analyzer.dic.Dictionary.loadDictFile(Dictionary.java:194)
+        at org.wltea.analyzer.dic.Dictionary.loadSurnameDict(Dictionary.java:545)
+
+See logs for more details.
+
+[2026-06-17T20:11:00,418][WARN ][o.e.i.c.IndicesClusterStateService] [DESKTOP-8G2CN5U] [.ds-ilm-history-7-2026.06.17-000001][0] marking and sending shard failed due to [failed to create index]java.lang.RuntimeException: ik-analyzer: Surname not found!!!
+        at org.wltea.analyzer.dic.Dictionary.loadDictFile(Dictionary.java:209)
+        at org.wltea.analyzer.dic.Dictionary.loadSurnameDict(Dictionary.java:545)
+        at org.wltea.analyzer.dic.Dictionary.initial(Dictionary.java:148)
+        at com.infinilabs.ik.elasticsearch.ConfigurationSub.<init>(ConfigurationSub.java:25)
+        at com.infinilabs.ik.elasticsearch.IkTokenizerFactory.<init>(IkTokenizerFactory.java:16)
+
+See logs for more details.
+
+[2026-06-17T20:11:00,943][WARN ][o.e.c.r.a.AllocationService] [DESKTOP-8G2CN5U] failing shard [FailedShard[routingEntry=[.ds-ilm-history-7-2026.06.17-000001][0], node[_Eznpw9dR6yBSxwdRxYKAQ], [P], recovery_source[existing store recovery; bootstrap_history_uuid=false], s[INITIALIZING], a[id=0wo5h-E9QumveTb2UxfoOg], unassigned_info[[reason=CLUSTER_RECOVERED], at[2026-06-17T12:10:59.612Z], delayed=false, allocation_status[fetching_shard_data]], failed_attempts[0], message=failed to create index, failure=java.lang.RuntimeException: ik-analyzer: Surname not found!!!, markAsStale=true]]java.lang.RuntimeException: ik-analyzer: Surname not found!!!
+        at org.wltea.analyzer.dic.Dictionary.loadDictFile(Dictionary.java:209)
+        at org.wltea.analyzer.dic.Dictionary.loadSurnameDict(Dictionary.java:545)
+        at org.wltea.analyzer.dic.Dictionary.initial(Dictionary.java:148)
+        at com.infinilabs.ik.elasticsearch.ConfigurationSub.<init>(ConfigurationSub.java:25)
+        at com.infinilabs.ik.elasticsearch.IkTokenizerFactory.<init>(IkTokenizerFactory.java:16)
+
+See logs for more details.

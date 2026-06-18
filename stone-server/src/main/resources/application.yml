@@ -1,0 +1,60 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gaocui?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    username: root
+    password: 111111 #密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: a630@163.com #邮箱
+    password:  #smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.163.com
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+alipay:
+  app-id: 90299 #支付宝
+  app-private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIiDms925ki6ll+6TPxpe+IcrEWlOxvhIUSlpT03RVUk3Rgxq57+03WzfiC4O8tNMm3B9ZDOL30YAWsCrhOe8owYiNSmxU29g0bKW5N8Ob003/lB0Q3WR/9qMEAYfFiI4t6l39gMK3JTsMuWUF55bbqmRVJq91tMDnV3Jq01GRTR4pu4tVM5ZEHikQiYhYH1nEdzkH37M8kgOtPFUuzHQqSVfRf1ySbRWaA8kvVjP/73/F+EFBSSNiqP7vmW/66Q0C+i+mi6thpAgMBAAECggEARmgQcVGUDnfHhjIRXsoEeVf4oZzfFTc6vkN1ov01vKLG7RMCpELlqpZm2IzB0Fa2lBQEFarGcXRB4exylxxZ7HN8P81JUhPdZJx70bJYs7eDagyCoaqCyBD7xfDn/nxqrFBQBmHJ8spJa7egiyrgwatUf4OijtMfkkY6rOkEPkig6C8I8A+oL//wXCaesnVXdZMEOGBr9A9hwBgAQuUw5P4FKsbaT2ckj5QiAu6unmeKQ4ne0OLYX5I2BBXuMMEvF0kH4467TCM5kcQq2nhO9BaKZ+e5FhCZ3NAi987AbHRGRlQI0ZkBzHY4BCQ0rYomzcnx8KQ4i4zRF3OBJm3psQKBgQDXVsfFMXWBTYXaXQARNhYudvQAitoK+M+PKNyRv4Mg8qXXsT6hKBocISE9+SG8H5fsoWSJS/zbhkt1IlXzPe6zYwkUXsM3tdET9uMYLencGWMysSbP49/RLVqBHMc9GFB3CS68QRsLSkMot14EVEuQ0UTtKxDWNnsjzPfekMqUNQKBgQC6vZfU0Mv0lK2wuHLARc3FvkkW/GEo0s0vb8o+9LhtnIhBTBvUAVyTw+StHdSM7C2vvB+2nHaUNHOYGSi4aaguLD8rdDAIn6YPczp/i/x4dM5Xc2ApKMmUBFw2r2q2JgqM+/mQ1ogdRmSYXtkNtYJT8/1GtpGXJMTN9U/RXIHR5QKBgQCA6rgwavrBDWs8Hn9CzpGbAaX0iSwec3S3bSwXqYLUf9AfgEJRctOm0YK4OmUi3fszNDAfLjnUJuMX3hV8yTAVfw3Zfx36RURFYoH0YNBn717+4yWsQe0lqrRLJbJ19g9+JCYxl/yb1rq8LoL/roOK0G4mWqj6xaUU+snOGfrdnQKBgFAyNe9WUBDUfRdEzzsVfz5p7tepQUyX4zh5COEqlb21GKr6NYVBpHFtElrqUarHjwNGhlQVM7OIJxBt1ZgFAA38QJC30B0T+uvtr3SxOJa+ixLxYJ2sf41KphNyGCDri2JqoA38o+32miL5sLt7dOH7CY2BwFqplr9gl4uw76ulAoGAfst1UN4JBQTn1dGSLGh6wWIt4AIqTVzwaEqajDY4o+gb5yvL65tA2ZQd8sVnUEQQisYetv3fpPGXRNFbWBfj9idKOte5j8NYqlTznl4J9woXwysg80ZLuCGZI8SFFOru5eBMEsXI28yOq5XHg+GyZBwTj2CsJ+XuKArD7qC2nV0=  #沙箱java密钥
+  alipay-public-key: MIIBIjANBgkqhkiG9w0AOWEgIgU+BO6+X3iKRWACeGTleYtxWMdQGCd1nh1KHF2O6zPrzQdU6mQLr6THLNDrsYD+FmeFrhzHYAY3DOCz3mhYKnvQmsRhRbkrug/g1SAQ3YUaEwSJdtCwiGBEb0o4MIaDPH9fxVcb5wv6aisgMULkWkOdtRkveniqJlkrP9Vc8KGbRpzuJFZgJL4vcJPAuJoF80UpcGNV9ezj2zjVA8jetrwlqnLUcoszHx0qVyAaOJxRxrO6Tz6lW/19ygHKDURBRQIDAQAB #沙箱公钥
+  notify-url: http://wa.natappfree.cc  #内网穿透
+
+gaocui:
+  upload:
+    path: ./uploads/
+  elasticsearch:
+    host: localhost
+    port: 9200
+  llm:
+    deepseek-api-key: ${DEEPSEEK_API_KEY:}   # 环境变量传入
+    deepseek-base-url: https://api.deepseek.com
+    deepseek-pro-model: deepseek-v4-pro #模型名字
+    deepseek-flash-model: deepseek-v4-flash #模型名字
+    qwen-api-key: ${QWEN_API_KEY:}         # 环境变量传入 #我的key,会在下星期取消
+    qwen-base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    qwen-model: qwen-plus #模型名字
+    qwen-vision-model: qwen-vl-plus #模型名字

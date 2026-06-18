@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: gaocui-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gaocui
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./stone-server/src/main/resources/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./docs/sample_products.sql:/docker-entrypoint-initdb.d/02-data.sql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  redis:
+    image: redis:7-alpine
+    container_name: gaocui-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    container_name: gaocui-es
+    restart: always
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
+  backend:
+    build:
+      context: ./stone-server
+      dockerfile: Dockerfile
+    container_name: gaocui-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis
+      - elasticsearch
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/gaocui?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATA_REDIS_HOST: redis
+      GAOCUI_ELASTICSEARCH_HOST: elasticsearch
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
+      QWEN_API_KEY: ${QWEN_API_KEY}
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: gaocui-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql-data:
+  es-data:

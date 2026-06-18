@@ -1,0 +1,168 @@
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@484c35f5] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1119457674 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,product_id,buyer_email,buyer_message,status,created_at FROM leads WHERE (merchant_id = ?) ORDER BY created_at DESC
+==> Parameters: 1(Long)
+<==    Columns: id, merchant_id, product_id, buyer_email, buyer_message, status, created_at
+<==        Row: 1, 1, 1, buyer123@qq.com, <<BLOB>>, PENDING, 2026-06-17 10:30:00
+<==        Row: 5, 1, 1, buyer123@qq.com, <<BLOB>>, PENDING, 2026-06-17 10:30:00
+<==        Row: 9, 1, 1, buyer123@qq.com, <<BLOB>>, PENDING, 2026-06-17 10:30:00
+<==        Row: 13, 1, 1, buyer123@qq.com, <<BLOB>>, PENDING, 2026-06-17 10:30:00
+<==        Row: 3, 1, 3, gift_buyer@126.com, <<BLOB>>, PENDING, 2026-06-17 09:15:00
+<==        Row: 7, 1, 3, gift_buyer@126.com, <<BLOB>>, PENDING, 2026-06-17 09:15:00
+<==        Row: 11, 1, 3, gift_buyer@126.com, <<BLOB>>, PENDING, 2026-06-17 09:15:00
+<==        Row: 15, 1, 3, gift_buyer@126.com, <<BLOB>>, PENDING, 2026-06-17 09:15:00
+<==        Row: 4, 1, 6, emily_wang@outlook.com, <<BLOB>>, PENDING, 2026-06-16 16:45:00
+<==        Row: 8, 1, 6, emily_wang@outlook.com, <<BLOB>>, PENDING, 2026-06-16 16:45:00
+<==        Row: 12, 1, 6, emily_wang@outlook.com, <<BLOB>>, PENDING, 2026-06-16 16:45:00
+<==        Row: 16, 1, 6, emily_wang@outlook.com, <<BLOB>>, PENDING, 2026-06-16 16:45:00
+<==        Row: 2, 1, 2, jade_lover@163.com, <<BLOB>>, CONTACTED, 2026-06-16 14:20:00
+<==        Row: 6, 1, 2, jade_lover@163.com, <<BLOB>>, CONTACTED, 2026-06-16 14:20:00
+<==        Row: 10, 1, 2, jade_lover@163.com, <<BLOB>>, CONTACTED, 2026-06-16 14:20:00
+<==        Row: 14, 1, 2, jade_lover@163.com, <<BLOB>>, CONTACTED, 2026-06-16 14:20:00
+<==      Total: 16
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@484c35f5]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@668cf0c1] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1391513842 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 1(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@668cf0c1]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c76180b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2112189828 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 1(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c76180b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23f8ca0c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@527579192 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 1(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23f8ca0c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53e85d8a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@916800849 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 1(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53e85d8a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18edd54e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@158916564 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 3(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18edd54e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d4964bf] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@460889085 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 3(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d4964bf]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1df0577c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@993699041 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 3(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1df0577c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ba5fa10] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@611389871 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 3(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ba5fa10]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d0f7003] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@703490248 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 6(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d0f7003]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ac00d2c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@478802207 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 6(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ac00d2c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@347665f2] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1845864253 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 6(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@347665f2]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20224f2d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@670885678 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 6(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20224f2d]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64c3a622] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1454036656 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 2(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64c3a622]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e511222] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@400186236 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 2(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e511222]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df6252b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@466675893 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 2(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df6252b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@616d14b3] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@763280072 wrapping com.mysql.cj.jdbc.ConnectionImpl@a85644c] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE id=?
+==> Parameters: 2(Long)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@616d14b3]

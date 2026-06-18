@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MySQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+  mail:
+    host: localhost
+    port: 25
+    username: test
+    password: test
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+gaocui:
+  elasticsearch:
+    host: localhost
+    port: 9200
+  llm:
+    deepseek-api-key: test-key
+    qwen-api-key: test-key
+  jwt:
+    secret: test-32-char-secret-key-for-jwt!!
+
+alipay:
+  notify-url: http://localhost/api/alipay/notify

@@ -1,0 +1,25 @@
+2026-06-18T16:42:34.924+08:00  INFO 29668 --- [onPool-worker-2] com.gaocui.llm.DeepSeekClient            : DeepSeek 流式回复完成: 816字
+2026-06-18T16:42:34.925+08:00  INFO 29668 --- [onPool-worker-2] com.gaocui.controller.ChatController     : Agent解析: isJade=true, keyword=冰种 墨翠 玉佩 挂件 霸气, tags=帅气玉佩,男性翡翠,冰种墨翠,独特别致
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46155a3a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1620881781 wrapping com.mysql.cj.jdbc.ConnectionImpl@51cca357] will not be managed by Spring
+==>  Preparing: INSERT INTO jade_demands ( session_id, user_message, demand_title, demand_description, demand_detail, tags, specs, es_keyword, es_tags, match_count ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 97ca0bdf-19c3-48f7-a9ce-df9a52e73ed2(String), 我想买一天帅气的不行的玉佩(String), 帅气不凡的冰种玉佩(String), 寻找一款设计帅气、适合男士佩戴的冰种或墨翠玉佩，彰显个性与品味。(String), 希望玉佩造型简约大气或有特色雕刻，如龙、凤、瑞兽或抽象几何图案，种水以冰种或墨翠为佳，颜色偏好黑色或飘绿，镶嵌简约或素面，不要过于复杂。尺寸适中，适合日常佩戴。整体风格要显得霸气、时尚、有质感，适合社交场合佩戴。预算不限，货品需保真。(String), ["帅气","玉佩","男性","冰种","墨翠","霸气","独特别致","日常佩戴"](String), {"产品品类":"玉佩","核心卖点":"帅气、霸气、时尚、个性","主石材质":"翡翠","翡翠造型":"抽象雕刻或瑞兽","翡翠种水":"冰种或墨翠","翡翠颜色":"黑色或飘绿","配石材质":"无或少量钻石","镶嵌工艺":"简约镶嵌或素面","瑕疵情况":"无明显瑕疵","款式风格":"简约、霸气、时尚","适用场景":"日常佩戴、社交场合","产品寓意":"吉祥如意、招财纳福","镶嵌材质":"18K金或铂金","镶嵌配件":"无","尺寸规格":""}(String), 冰种 墨翠 玉佩 挂件 霸气(String), 帅气玉佩,男性翡翠,冰种墨翠,独特别致(String), 0(Integer)
+!!! ES搜索: keyword=冰种 墨翠 玉佩 挂件 霸气 tags=帅气玉佩,男性翡翠,冰种墨翠,独特别致
+!!! ES结果: cards=0
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46155a3a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3815b84f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1023914273 wrapping com.mysql.cj.jdbc.ConnectionImpl@51cca357] will not be managed by Spring
+==>  Preparing: INSERT INTO chat_history ( session_id, role, content ) VALUES ( ?, ?, ? )
+==> Parameters: 97ca0bdf-19c3-48f7-a9ce-df9a52e73ed2(String), user(String), 我想买一天帅气的不行的玉佩(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3815b84f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d382e2d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@230037522 wrapping com.mysql.cj.jdbc.ConnectionImpl@51cca357] will not be managed by Spring
+==>  Preparing: INSERT INTO chat_history ( session_id, role, content ) VALUES ( ?, ?, ? )
+==> Parameters: 97ca0bdf-19c3-48f7-a9ce-df9a52e73ed2(String), ai(String), 好的老板！为您寻找一款帅气非凡的玉佩，翡翠挂件中的经典款式，保证让您气场全开！(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d382e2d]

@@ -1,0 +1,80 @@
+#这里只是把官网示例的接口文档放在这里,虽然是以curl的格式,但是拼的url严格参考以下格式
+#且可用的模型分别有qwen-plus 和 qwen3-vl-plus
+#流式输出stream要打开,且qwen3-vl-plus是图像输入专用
+
+#默认
+curl --location "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions" \
+--header "Authorization: Bearer $DASHSCOPE_API_KEY" \
+--header "Content-Type: application/json" \
+--data '{
+    "model": "qwen-plus",
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "你是谁？"
+        }
+    ],
+    "stream":true,
+    "stream_options": {
+        "include_usage": true
+    }
+}'
+
+#图像输入
+curl -X POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
+-H "Authorization: Bearer $DASHSCOPE_API_KEY" \
+-H 'Content-Type: application/json' \
+-d '{
+  "model": "qwen-vl-plus",
+  "messages": [{
+      "role": "user",
+      "content": [
+       {"type": "image_url","image_url": {"url": "https://dashscope.oss-cn-beijing.aliyuncs.com/images/dog_and_girl.jpeg"}},
+       {"type": "text","text": "这是什么"}
+       ]}]
+}'
+
+#多图像输入
+curl --location 'https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation' \
+--header "Authorization: Bearer $DASHSCOPE_API_KEY" \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": "qwen3.7-plus",
+    "input":{
+        "messages":[
+            {
+                "role": "user",
+                "content": [
+                    {"image": "https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/zh-CN/20241022/emyrja/dog_and_girl.jpeg"},
+                    {"image": "https://dashscope.oss-cn-beijing.aliyuncs.com/images/tiger.png"},
+                    {"text": "这些图展现了什么内容？"}
+                ]
+            }
+        ]
+    }
+}'
+
+#结构化输出
+curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ${API_KEY}" \
+  -d '{
+       "model": "qwen-plus",
+  "messages": [
+    {
+      "role": "system",
+      "content": "请抽取用户的姓名与年龄信息，以JSON格式返回"
+    },
+    {
+      "role": "user",
+      "content": "大家好，我叫刘五，今年34岁，邮箱是liuwu@example.com"
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  }
+      }'
