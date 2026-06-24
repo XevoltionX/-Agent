@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.ObjectProvider;
 
 import java.math.BigDecimal;
 
@@ -26,12 +27,14 @@ class ProductServiceTest {
     @Mock private ProductImageMapper imageMapper;
     @Mock private ProductTagMapper tagMapper;
     @Mock private ProductSearchService searchService;
+    @Mock private ObjectProvider<ProductSearchService> searchServiceProvider;
 
     private ProductService productService;
 
     @BeforeEach
     void setUp() {
-        productService = new ProductService(productMapper, imageMapper, tagMapper, searchService);
+        when(searchServiceProvider.getIfAvailable()).thenReturn(searchService);
+        productService = new ProductService(productMapper, imageMapper, tagMapper, searchServiceProvider);
     }
 
     @Test

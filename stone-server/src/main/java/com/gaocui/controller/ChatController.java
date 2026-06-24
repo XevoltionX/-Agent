@@ -63,7 +63,7 @@ public class ChatController {
                     "- reply 字段使用用户的语言回复。用户用英文提问则 reply 用英文，用户用日文则 reply 用日文。\n\n" +
                     "## JSON格式\n" +
                     "只输出纯JSON，不添加Markdown标记。\n\n" +
-                    "true:{\"isJadeQuery\":true,\"reply\":\"回复\",\"keyword\":\"中文搜索词\",\"tags\":\"标签1,标签2\",\"demandTitle\":\"15字内\",\"demandDescription\":\"50字内\",\"demandDetail\":\"300字内\",\"tagsList\":[\"标签1\"],\"specs\":{\"产品品类\":\"\",\"核心卖点\":\"\",\"主石材质\":\"\",\"翡翠造型\":\"\",\"翡翠种水\":\"\",\"翡翠颜色\":\"\",\"配石材质\":\"\",\"镶嵌工艺\":\"\",\"瑕疵情况\":\"\",\"款式风格\":\"\",\"适用场景\":\"\",\"产品寓意\":\"\",\"镶嵌材质\":\"\",\"镶嵌配件\":\"\",\"尺寸规格\":\"\"}}\n" +
+                    "true:{\"isJadeQuery\":true,\"reply\":\"回复\",\"keyword\":\"中文搜索词\",\"tags\":\"标签1,标签2\",\"budget\":预算整数(人民币元,如100000,无则0),\"demandTitle\":\"15字内\",\"demandDescription\":\"50字内\",\"demandDetail\":\"300字内\",\"tagsList\":[\"标签1\"],\"specs\":{\"产品品类\":\"\",\"核心卖点\":\"\",\"主石材质\":\"\",\"翡翠造型\":\"\",\"翡翠种水\":\"\",\"翡翠颜色\":\"\",\"配石材质\":\"\",\"镶嵌工艺\":\"\",\"瑕疵情况\":\"\",\"款式风格\":\"\",\"适用场景\":\"\",\"产品寓意\":\"\",\"镶嵌材质\":\"\",\"镶嵌配件\":\"\",\"尺寸规格\":\"\"}}\n" +
                     "false:{\"isJadeQuery\":false,\"reply\":\"引导语(用用户语言)\",\"keyword\":\"\",\"tags\":\"\",\"demandTitle\":\"\",\"demandDescription\":\"\",\"demandDetail\":\"\",\"tagsList\":[],\"specs\":{}}" + tagHint;
 
                 // 判断上一轮是否翡翠搜索 → 决定加载多少历史
@@ -83,46 +83,16 @@ public class ChatController {
                     }
                 }
 
-                llmMessages.add(Map.of("role", "user", "content", message));
+                // XSS过滤
+                String safeMessage = message.replaceAll("[<>\"']", "");
+                llmMessages.add(Map.of("role", "user", "content", safeMessage));
 
-                java.util.concurrent.atomic.AtomicBoolean proCancelled = new java.util.concurrent.atomic.AtomicBoolean(false);
-                // 先收集完整JSON，解析后再流式发reply
+                // 豆包：收集完整JSON，解析后再流式发reply
                 StringBuilder buffer = new StringBuilder();
-                java.util.function.Consumer<String> onChunk = chunk -> {
-                    if (proCancelled.get()) return;
-                    buffer.append(chunk);
-                };
-                // Pro优先，360秒超时→降级Flash
-                com.gaocui.llm.DeepSeekClient ds = llmFactory.getDeepSeek();
-                java.util.concurrent.atomic.AtomicBoolean proStarted = new java.util.concurrent.atomic.AtomicBoolean(false);
-                java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newSingleThreadExecutor();
+                java.util.function.Consumer<String> onChunk = chunk -> buffer.append(chunk);
 
-                java.util.concurrent.Future<String> proFuture = executor.submit(() -> {
-                    proStarted.set(true);
-                    return ds.chatStreamPro(llmMessages, onChunk);
-                });
-
-                String llmReply;
-                try {
-                    int waitSeconds = timeout > 0 ? timeout : 600;
-                    llmReply = proFuture.get(waitSeconds, java.util.concurrent.TimeUnit.SECONDS);
-                } catch (java.util.concurrent.TimeoutException te) {
-                    // Pro超时→取消→切Flash
-                    log.warn("Pro模型超时，降级Flash");
-                    proCancelled.set(true);
-                    proFuture.cancel(true);
-                    if (proStarted.get()) {
-                        emitter.send(SseEmitter.event().name("chunk").data("[系统提示] 高峰时段，已切换Flash。先看热门推荐：\n"));
-                    }
-                    // 推送Redis缓存的商品
-                    java.util.List<Map<String, Object>> cached = chatService.getCachedCards();
-                    if (cached != null && !cached.isEmpty()) {
-                        emitter.send(SseEmitter.event().name("cards").data(chatService.slimCardsToJson(cached)));
-                    }
-                    llmReply = ds.chatStreamFlash(llmMessages, onChunk);
-                } finally {
-                    executor.shutdownNow();
-                }
+                com.gaocui.llm.DoubaoClient doubao = llmFactory.getDoubao();
+                String llmReply = doubao.chatStream(llmMessages, onChunk);
 
                 // 解析Agent JSON，只发reply给前端
                 try {
@@ -148,20 +118,10 @@ public class ChatController {
                         }
                     }
 
-                    // ES搜索（带降级：tags无结果→纯keyword）
-                    String searchKeyword = (keyword != null && !keyword.isEmpty()) ? keyword : message;
-                    Map<String, Object> searchResult = chatService.searchOnly(searchKeyword);
-                    // 先用keyword搜，有tags时再进一步过滤
-                    if (tags != null && !tags.isEmpty()) {
-                        Map<String, Object> tagResult = chatService.searchWithTags(searchKeyword, tags);
-                        @SuppressWarnings("unchecked")
-                        java.util.List<Map<String, Object>> tagCards = tagResult != null ?
-                            (java.util.List<Map<String, Object>>) tagResult.get("list") : Collections.emptyList();
-                        if (tagCards != null && !tagCards.isEmpty()) {
-                            searchResult = tagResult; // tags有结果用tags
-                        }
-                        // tags无结果 → 降级用纯keyword（searchResult保持keyword结果）
-                    }
+                    // 搜索（Agent解析的keyword+tags，预算从Agent JSON获取）
+                    String searchKeyword = (keyword != null && !keyword.isEmpty()) ? keyword : safeMessage;
+                    String budgetStr = String.valueOf(agentData.getOrDefault("budget", ""));
+                    Map<String, Object> searchResult = chatService.searchWithBudget(searchKeyword, tags, budgetStr);
                     @SuppressWarnings("unchecked")
                     java.util.List<Map<String, Object>> cards = searchResult != null ?
                         (java.util.List<Map<String, Object>>) searchResult.get("list") : Collections.emptyList();

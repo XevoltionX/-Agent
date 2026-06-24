@@ -1,0 +1,881 @@
+2026-06-23T22:22:34.882+08:00  INFO 21168 --- [           main] c.gaocui.service.ProductSearchService    : ES索引重建完成：25件商品
+2026-06-23T22:22:34.882+08:00  INFO 21168 --- [           main] com.gaocui.config.EsInitializer          : ES索引初始化完成：25件商品
+2026-06-23T22:22:46.392+08:00  INFO 21168 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-23T22:22:46.392+08:00  INFO 21168 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-23T22:22:46.393+08:00  INFO 21168 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@36b43739] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2134860052 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags
+==> Parameters: 
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 93, 1, 冰种, 0
+<==        Row: 94, 1, 手镯, 1
+<==        Row: 95, 1, 飘花, 2
+<==        Row: 96, 1, 58圈口, 3
+<==        Row: 97, 2, 帝王绿, 0
+<==        Row: 98, 2, 戒面, 1
+<==        Row: 99, 2, 蛋面, 2
+<==        Row: 100, 2, 镶嵌, 3
+<==        Row: 101, 3, 冰种, 0
+<==        Row: 102, 3, 平安扣, 1
+<==        Row: 103, 3, 挂件, 2
+<==        Row: 104, 3, 送礼, 3
+<==        Row: 108, 5, 玻璃种, 0
+<==        Row: 109, 5, 叶子, 1
+<==        Row: 110, 5, 挂件, 2
+<==        Row: 111, 5, 高货, 3
+<==        Row: 112, 6, 冰种, 0
+<==        Row: 113, 6, 吊坠, 1
+<==        Row: 114, 6, 葫芦, 2
+<==        Row: 115, 6, 送礼, 3
+<==        Row: 165, 7, 冰种, 0
+<==        Row: 166, 7, 手镯, 1
+<==        Row: 167, 7, 正圈, 2
+<==        Row: 168, 7, 飘绿花, 3
+<==        Row: 169, 7, 57圈口, 4
+<==        Row: 170, 8, 糯种, 0
+<==        Row: 171, 8, 手镯, 1
+<==        Row: 172, 8, 贵妃款, 2
+<==        Row: 173, 8, 紫罗兰, 3
+<==        Row: 174, 8, 56圈口, 4
+<==        Row: 175, 9, 糯冰种, 0
+<==        Row: 176, 9, 手镯, 1
+<==        Row: 177, 9, 圆条, 2
+<==        Row: 178, 9, 飘花, 3
+<==        Row: 179, 9, 58圈口, 4
+<==        Row: 180, 10, 冰种, 0
+<==        Row: 181, 10, 观音, 1
+<==        Row: 182, 10, 吊坠, 2
+<==        Row: 183, 10, 手工雕, 3
+<==        Row: 184, 10, 保平安, 4
+<==        Row: 185, 11, 玻璃种, 0
+<==        Row: 186, 11, 叶子, 1
+<==        Row: 187, 11, 吊坠, 2
+<==        Row: 188, 11, 起光起胶, 3
+<==        Row: 189, 11, 高货, 4
+<==        Row: 190, 12, 冰糯种, 0
+<==        Row: 191, 12, 福豆, 1
+<==        Row: 192, 12, 吊坠, 2
+<==        Row: 193, 12, 阳绿, 3
+<==        Row: 194, 12, 四季平安, 4
+<==        Row: 195, 13, 帝王绿, 0
+<==        Row: 196, 13, 戒面, 1
+<==        Row: 197, 13, 蛋面, 2
+<==        Row: 198, 13, 收藏级, 3
+<==        Row: 199, 13, 强荧光, 4
+<==        Row: 200, 14, 冰种, 0
+<==        Row: 201, 14, 戒面, 1
+<==        Row: 202, 14, 阳绿, 2
+<==        Row: 203, 14, 一对, 3
+<==        Row: 204, 14, 耳坠料, 4
+<==        Row: 205, 15, 冰种, 0
+<==        Row: 206, 15, 平安扣, 1
+<==        Row: 207, 15, 送礼, 2
+<==        Row: 208, 15, 飘绿, 3
+<==        Row: 209, 16, 冰种, 0
+<==        Row: 210, 16, 手链, 1
+<==        Row: 211, 16, 圆珠, 2
+<==        Row: 212, 16, 白冰, 3
+<==        Row: 213, 16, 18K金, 4
+<==        Row: 214, 17, 糯种, 0
+<==        Row: 215, 17, 手链, 1
+<==        Row: 216, 17, 黄翡, 2
+<==        Row: 217, 17, 招财, 3
+<==        Row: 218, 17, 圆珠, 4
+<==        Row: 219, 18, 冰种, 0
+<==        Row: 220, 18, 耳坠, 1
+<==        Row: 221, 18, 水滴形, 2
+<==        Row: 222, 18, 18K金, 3
+<==        Row: 223, 18, 钻石, 4
+<==        Row: 224, 19, 春带彩, 0
+<==        Row: 225, 19, 如意, 1
+<==        Row: 226, 19, 挂件, 2
+<==        Row: 227, 19, 紫加绿, 3
+<==        Row: 228, 20, 墨翠, 0
+<==        Row: 229, 20, 貔貅, 1
+<==        Row: 230, 20, 挂件, 2
+<==        Row: 231, 20, 招财, 3
+<==        Row: 232, 20, 打灯透绿, 4
+<==        Row: 233, 21, 蓝水, 0
+<==        Row: 234, 21, 龙牌, 1
+<==        Row: 235, 21, 挂件, 2
+<==        Row: 236, 21, 冰种, 3
+<==        Row: 237, 21, 浮雕, 4
+<==        Row: 238, 22, 冰种, 0
+<==        Row: 239, 22, 白菜, 1
+<==        Row: 240, 22, 摆件, 2
+<==        Row: 241, 22, 百财, 3
+<==        Row: 242, 22, 招财, 4
+<==        Row: 319, 38, 手工雕, 0
+<==        Row: 320, 38, 艺术创作, 1
+<==        Row: 321, 38, 收藏级, 2
+<==        Row: 322, 39, 挂件, 0
+<==        Row: 323, 39, 观音, 1
+<==        Row: 324, 39, 手工雕, 2
+<==        Row: 325, 39, 翡翠, 3
+<==        Row: 326, 39, 保平安, 4
+<==        Row: 327, 39, 收藏级, 5
+<==        Row: 328, 40, 摆件, 0
+<==        Row: 329, 40, 送礼, 1
+<==        Row: 330, 40, 收藏级, 2
+<==        Row: 331, 40, 艺术创作, 3
+<==        Row: 332, 41, 挂件, 0
+<==        Row: 333, 41, 观音, 1
+<==        Row: 334, 41, 黄翡, 2
+<==        Row: 335, 41, 手工雕, 3
+<==        Row: 336, 41, 保平安, 4
+<==        Row: 337, 41, 收藏, 5
+<==        Row: 346, 44, 翡翠, 0
+<==        Row: 347, 44, 黄翡, 1
+<==        Row: 348, 44, 挂件, 2
+<==        Row: 349, 44, 手工雕, 3
+<==        Row: 350, 44, 送礼, 4
+<==        Row: 351, 44, 艺术创作, 5
+<==      Total: 123
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@36b43739]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@326a64de] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1553398533 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM jade_demands WHERE (session_id = ?)
+==> Parameters: b1e69c90-f7de-4a24-9996-b6dd1651ddda(String)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@326a64de]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67b5d58d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1198988104 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,session_id,role,content,cards,merchant_id,created_at FROM chat_history WHERE (session_id = ?) ORDER BY id ASC LIMIT 6
+==> Parameters: b1e69c90-f7de-4a24-9996-b6dd1651ddda(String)
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67b5d58d]
+2026-06-23T22:22:56.481+08:00  INFO 21168 --- [onPool-worker-1] com.gaocui.llm.DoubaoClient              : 豆包 流式回复完成: 389字
+2026-06-23T22:22:56.482+08:00  INFO 21168 --- [onPool-worker-1] com.gaocui.controller.ChatController     : Agent解析: isJade=true, keyword=10万预算帝王绿手镯, tags=帝王绿,手镯
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4aa11961] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@545145296 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE (status = ?) ORDER BY published_at DESC
+==> Parameters: PUBLISHED(String)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 44, 2, 创意便便翡翠挂件, <<BLOB>>, <<BLOB>>, 268.00, PUBLISHED, 2026-06-23 22:09:37, 2026-06-23 22:09:37, 2026-06-23 22:09:37
+<==        Row: 41, 5, 黄翡观音挂件, <<BLOB>>, <<BLOB>>, 280000.00, PUBLISHED, 2026-06-19 10:20:36, 2026-06-19 10:20:35, 2026-06-19 10:20:35
+<==        Row: 40, 5, 猫咪摆件, <<BLOB>>, <<BLOB>>, 150.00, PUBLISHED, 2026-06-19 10:19:22, 2026-06-19 10:19:22, 2026-06-19 10:19:22
+<==        Row: 39, 3, 翡翠观音挂件, <<BLOB>>, <<BLOB>>, 1200.00, PUBLISHED, 2026-06-19 10:08:02, 2026-06-19 10:08:02, 2026-06-19 10:08:02
+<==        Row: 20, 2, 墨翠貔貅挂件 招财辟邪, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-19 00:47:10, 2026-06-16 10:00:00, 2026-06-18 16:28:25
+<==        Row: 38, 3, 翡翠手绘艺术图, <<BLOB>>, <<BLOB>>, 500.00, PUBLISHED, 2026-06-18 18:52:25, 2026-06-18 18:52:25, 2026-06-18 18:52:25
+<==        Row: 22, 2, 冰种翡翠玉白菜摆件 小号, <<BLOB>>, <<BLOB>>, 98000.00, PUBLISHED, 2026-06-17 11:00:00, 2026-06-16 08:00:00, 2026-06-18 16:28:25
+<==        Row: 21, 1, 蓝水翡翠龙牌挂件, <<BLOB>>, <<BLOB>>, 42000.00, PUBLISHED, 2026-06-17 09:30:00, 2026-06-16 14:00:00, 2026-06-18 16:28:25
+<==        Row: 18, 2, 冰种翡翠耳坠 水滴造型, <<BLOB>>, <<BLOB>>, 45000.00, PUBLISHED, 2026-06-16 14:00:00, 2026-06-15 10:00:00, 2026-06-18 16:28:25
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==        Row: 19, 1, 春带彩翡翠如意挂件, <<BLOB>>, <<BLOB>>, 38000.00, PUBLISHED, 2026-06-16 10:00:00, 2026-06-15 14:00:00, 2026-06-18 16:28:25
+<==        Row: 17, 1, 糯种黄翡翡翠手链 10mm, <<BLOB>>, <<BLOB>>, 16000.00, PUBLISHED, 2026-06-16 09:00:00, 2026-06-15 11:00:00, 2026-06-18 16:28:25
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==        Row: 16, 2, 冰种翡翠圆珠手链 8mm, <<BLOB>>, <<BLOB>>, 32000.00, PUBLISHED, 2026-06-15 11:00:00, 2026-06-14 13:00:00, 2026-06-18 16:28:25
+<==        Row: 13, 1, 帝王绿翡翠蛋面 收藏级, <<BLOB>>, <<BLOB>>, 280000.00, PUBLISHED, 2026-06-15 10:00:00, 2026-06-14 08:00:00, 2026-06-18 16:28:25
+<==        Row: 15, 1, 冰种翡翠平安扣 大尺寸, <<BLOB>>, <<BLOB>>, 22000.00, PUBLISHED, 2026-06-15 08:00:00, 2026-06-14 10:00:00, 2026-06-18 16:28:25
+<==        Row: 14, 2, 冰种满色阳绿翡翠戒面一对, <<BLOB>>, <<BLOB>>, 68000.00, PUBLISHED, 2026-06-14 16:00:00, 2026-06-13 12:00:00, 2026-06-18 16:28:25
+<==        Row: 12, 2, 翡翠福豆吊坠 四季平安, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-14 14:00:00, 2026-06-13 10:00:00, 2026-06-18 16:28:25
+<==        Row: 11, 1, 玻璃种翡翠叶子吊坠 起光起胶, <<BLOB>>, <<BLOB>>, 120000.00, PUBLISHED, 2026-06-14 09:30:00, 2026-06-13 15:00:00, 2026-06-18 16:28:25
+<==        Row: 10, 2, 冰种翡翠观音吊坠 手工精雕, <<BLOB>>, <<BLOB>>, 55000.00, PUBLISHED, 2026-06-13 11:00:00, 2026-06-12 09:00:00, 2026-06-18 16:28:25
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==        Row: 9, 1, 飘花翡翠手镯 圆条款 58圈口, <<BLOB>>, <<BLOB>>, 35000.00, PUBLISHED, 2026-06-12 08:30:00, 2026-06-11 16:00:00, 2026-06-18 16:28:25
+<==        Row: 8, 2, 糯种紫罗兰翡翠手镯 贵妃款, <<BLOB>>, <<BLOB>>, 28000.00, PUBLISHED, 2026-06-11 10:00:00, 2026-06-09 11:00:00, 2026-06-18 16:28:25
+<==        Row: 7, 1, 冰种正圈翡翠手镯 57圈口, <<BLOB>>, <<BLOB>>, 68000.00, PUBLISHED, 2026-06-10 09:00:00, 2026-06-08 14:00:00, 2026-06-18 16:28:25
+<==      Total: 25
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4aa11961]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ef71f6d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@537086035 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 44(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 346, 44, 翡翠, 0
+<==        Row: 347, 44, 黄翡, 1
+<==        Row: 348, 44, 挂件, 2
+<==        Row: 349, 44, 手工雕, 3
+<==        Row: 350, 44, 送礼, 4
+<==        Row: 351, 44, 艺术创作, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ef71f6d]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@755c4c5] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1034835372 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 41(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 332, 41, 挂件, 0
+<==        Row: 333, 41, 观音, 1
+<==        Row: 334, 41, 黄翡, 2
+<==        Row: 335, 41, 手工雕, 3
+<==        Row: 336, 41, 保平安, 4
+<==        Row: 337, 41, 收藏, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@755c4c5]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b4e412] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@778992589 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 40(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 328, 40, 摆件, 0
+<==        Row: 329, 40, 送礼, 1
+<==        Row: 330, 40, 收藏级, 2
+<==        Row: 331, 40, 艺术创作, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b4e412]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dd759f9] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1575204389 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 39(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 322, 39, 挂件, 0
+<==        Row: 323, 39, 观音, 1
+<==        Row: 324, 39, 手工雕, 2
+<==        Row: 325, 39, 翡翠, 3
+<==        Row: 326, 39, 保平安, 4
+<==        Row: 327, 39, 收藏级, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dd759f9]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@739bf85f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@876904260 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 20(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 228, 20, 墨翠, 0
+<==        Row: 229, 20, 貔貅, 1
+<==        Row: 230, 20, 挂件, 2
+<==        Row: 231, 20, 招财, 3
+<==        Row: 232, 20, 打灯透绿, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@739bf85f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45a619c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@682571848 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 38(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 319, 38, 手工雕, 0
+<==        Row: 320, 38, 艺术创作, 1
+<==        Row: 321, 38, 收藏级, 2
+<==      Total: 3
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45a619c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7eba2bdc] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@691790614 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 22(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 238, 22, 冰种, 0
+<==        Row: 239, 22, 白菜, 1
+<==        Row: 240, 22, 摆件, 2
+<==        Row: 241, 22, 百财, 3
+<==        Row: 242, 22, 招财, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7eba2bdc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@716af4ab] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1587660177 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 21(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 233, 21, 蓝水, 0
+<==        Row: 234, 21, 龙牌, 1
+<==        Row: 235, 21, 挂件, 2
+<==        Row: 236, 21, 冰种, 3
+<==        Row: 237, 21, 浮雕, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@716af4ab]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fac4ff4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1237659910 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 18(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 219, 18, 冰种, 0
+<==        Row: 220, 18, 耳坠, 1
+<==        Row: 221, 18, 水滴形, 2
+<==        Row: 222, 18, 18K金, 3
+<==        Row: 223, 18, 钻石, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fac4ff4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1411417f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@424640486 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 2(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 97, 2, 帝王绿, 0
+<==        Row: 98, 2, 戒面, 1
+<==        Row: 99, 2, 蛋面, 2
+<==        Row: 100, 2, 镶嵌, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1411417f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39e73fc4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1538639697 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 19(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 224, 19, 春带彩, 0
+<==        Row: 225, 19, 如意, 1
+<==        Row: 226, 19, 挂件, 2
+<==        Row: 227, 19, 紫加绿, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39e73fc4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8a602fe] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@146740529 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 17(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 214, 17, 糯种, 0
+<==        Row: 215, 17, 手链, 1
+<==        Row: 216, 17, 黄翡, 2
+<==        Row: 217, 17, 招财, 3
+<==        Row: 218, 17, 圆珠, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8a602fe]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4586bf] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@944555451 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 1(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 93, 1, 冰种, 0
+<==        Row: 94, 1, 手镯, 1
+<==        Row: 95, 1, 飘花, 2
+<==        Row: 96, 1, 58圈口, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4586bf]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b9d2027] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@935406997 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 16(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 209, 16, 冰种, 0
+<==        Row: 210, 16, 手链, 1
+<==        Row: 211, 16, 圆珠, 2
+<==        Row: 212, 16, 白冰, 3
+<==        Row: 213, 16, 18K金, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b9d2027]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73060153] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@23628556 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 13(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 195, 13, 帝王绿, 0
+<==        Row: 196, 13, 戒面, 1
+<==        Row: 197, 13, 蛋面, 2
+<==        Row: 198, 13, 收藏级, 3
+<==        Row: 199, 13, 强荧光, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73060153]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24206b0a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1735387716 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 15(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 205, 15, 冰种, 0
+<==        Row: 206, 15, 平安扣, 1
+<==        Row: 207, 15, 送礼, 2
+<==        Row: 208, 15, 飘绿, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24206b0a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@409a7017] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1732590389 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 14(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 200, 14, 冰种, 0
+<==        Row: 201, 14, 戒面, 1
+<==        Row: 202, 14, 阳绿, 2
+<==        Row: 203, 14, 一对, 3
+<==        Row: 204, 14, 耳坠料, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@409a7017]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ce372bc] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@527086079 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 12(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 190, 12, 冰糯种, 0
+<==        Row: 191, 12, 福豆, 1
+<==        Row: 192, 12, 吊坠, 2
+<==        Row: 193, 12, 阳绿, 3
+<==        Row: 194, 12, 四季平安, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ce372bc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28238d88] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1069710498 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 11(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 185, 11, 玻璃种, 0
+<==        Row: 186, 11, 叶子, 1
+<==        Row: 187, 11, 吊坠, 2
+<==        Row: 188, 11, 起光起胶, 3
+<==        Row: 189, 11, 高货, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28238d88]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61ac11e8] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1431805848 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 10(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 180, 10, 冰种, 0
+<==        Row: 181, 10, 观音, 1
+<==        Row: 182, 10, 吊坠, 2
+<==        Row: 183, 10, 手工雕, 3
+<==        Row: 184, 10, 保平安, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61ac11e8]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6295b48c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1672993383 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 3(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 101, 3, 冰种, 0
+<==        Row: 102, 3, 平安扣, 1
+<==        Row: 103, 3, 挂件, 2
+<==        Row: 104, 3, 送礼, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6295b48c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1541264a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1514131898 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 6(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 112, 6, 冰种, 0
+<==        Row: 113, 6, 吊坠, 1
+<==        Row: 114, 6, 葫芦, 2
+<==        Row: 115, 6, 送礼, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1541264a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24c63dcc] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@942222440 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 9(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 175, 9, 糯冰种, 0
+<==        Row: 176, 9, 手镯, 1
+<==        Row: 177, 9, 圆条, 2
+<==        Row: 178, 9, 飘花, 3
+<==        Row: 179, 9, 58圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24c63dcc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296f72b5] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1020400137 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 8(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 170, 8, 糯种, 0
+<==        Row: 171, 8, 手镯, 1
+<==        Row: 172, 8, 贵妃款, 2
+<==        Row: 173, 8, 紫罗兰, 3
+<==        Row: 174, 8, 56圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296f72b5]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d706bd4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2136497685 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 7(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 165, 7, 冰种, 0
+<==        Row: 166, 7, 手镯, 1
+<==        Row: 167, 7, 正圈, 2
+<==        Row: 168, 7, 飘绿花, 3
+<==        Row: 169, 7, 57圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d706bd4]
+2026-06-23T22:22:57.081+08:00  INFO 21168 --- [onPool-worker-1] com.gaocui.service.MysqlSearchService    : MySQL搜索: keyword=10万预算帝王绿手镯, total=0, returned=0
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79c75220] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1154618363 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,merchant_id,title,description,detail,price,status,published_at,created_at,updated_at FROM products WHERE (status = ?) ORDER BY published_at DESC
+==> Parameters: PUBLISHED(String)
+<==    Columns: id, merchant_id, title, description, detail, price, status, published_at, created_at, updated_at
+<==        Row: 44, 2, 创意便便翡翠挂件, <<BLOB>>, <<BLOB>>, 268.00, PUBLISHED, 2026-06-23 22:09:37, 2026-06-23 22:09:37, 2026-06-23 22:09:37
+<==        Row: 41, 5, 黄翡观音挂件, <<BLOB>>, <<BLOB>>, 280000.00, PUBLISHED, 2026-06-19 10:20:36, 2026-06-19 10:20:35, 2026-06-19 10:20:35
+<==        Row: 40, 5, 猫咪摆件, <<BLOB>>, <<BLOB>>, 150.00, PUBLISHED, 2026-06-19 10:19:22, 2026-06-19 10:19:22, 2026-06-19 10:19:22
+<==        Row: 39, 3, 翡翠观音挂件, <<BLOB>>, <<BLOB>>, 1200.00, PUBLISHED, 2026-06-19 10:08:02, 2026-06-19 10:08:02, 2026-06-19 10:08:02
+<==        Row: 20, 2, 墨翠貔貅挂件 招财辟邪, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-19 00:47:10, 2026-06-16 10:00:00, 2026-06-18 16:28:25
+<==        Row: 38, 3, 翡翠手绘艺术图, <<BLOB>>, <<BLOB>>, 500.00, PUBLISHED, 2026-06-18 18:52:25, 2026-06-18 18:52:25, 2026-06-18 18:52:25
+<==        Row: 22, 2, 冰种翡翠玉白菜摆件 小号, <<BLOB>>, <<BLOB>>, 98000.00, PUBLISHED, 2026-06-17 11:00:00, 2026-06-16 08:00:00, 2026-06-18 16:28:25
+<==        Row: 21, 1, 蓝水翡翠龙牌挂件, <<BLOB>>, <<BLOB>>, 42000.00, PUBLISHED, 2026-06-17 09:30:00, 2026-06-16 14:00:00, 2026-06-18 16:28:25
+<==        Row: 18, 2, 冰种翡翠耳坠 水滴造型, <<BLOB>>, <<BLOB>>, 45000.00, PUBLISHED, 2026-06-16 14:00:00, 2026-06-15 10:00:00, 2026-06-18 16:28:25
+<==        Row: 2, 1, 帝王绿翡翠蛋面戒面 18K金镶嵌, <<BLOB>>, <<BLOB>>, 128000.00, PUBLISHED, 2026-06-16 10:15:00, 2026-06-15 16:40:00, 2026-06-17 14:08:59
+<==        Row: 19, 1, 春带彩翡翠如意挂件, <<BLOB>>, <<BLOB>>, 38000.00, PUBLISHED, 2026-06-16 10:00:00, 2026-06-15 14:00:00, 2026-06-18 16:28:25
+<==        Row: 17, 1, 糯种黄翡翡翠手链 10mm, <<BLOB>>, <<BLOB>>, 16000.00, PUBLISHED, 2026-06-16 09:00:00, 2026-06-15 11:00:00, 2026-06-18 16:28:25
+<==        Row: 1, 1, 冰种飘花翡翠手镯 58圈口, <<BLOB>>, <<BLOB>>, 58000.00, PUBLISHED, 2026-06-15 14:30:00, 2026-06-14 09:20:00, 2026-06-17 14:08:59
+<==        Row: 16, 2, 冰种翡翠圆珠手链 8mm, <<BLOB>>, <<BLOB>>, 32000.00, PUBLISHED, 2026-06-15 11:00:00, 2026-06-14 13:00:00, 2026-06-18 16:28:25
+<==        Row: 13, 1, 帝王绿翡翠蛋面 收藏级, <<BLOB>>, <<BLOB>>, 280000.00, PUBLISHED, 2026-06-15 10:00:00, 2026-06-14 08:00:00, 2026-06-18 16:28:25
+<==        Row: 15, 1, 冰种翡翠平安扣 大尺寸, <<BLOB>>, <<BLOB>>, 22000.00, PUBLISHED, 2026-06-15 08:00:00, 2026-06-14 10:00:00, 2026-06-18 16:28:25
+<==        Row: 14, 2, 冰种满色阳绿翡翠戒面一对, <<BLOB>>, <<BLOB>>, 68000.00, PUBLISHED, 2026-06-14 16:00:00, 2026-06-13 12:00:00, 2026-06-18 16:28:25
+<==        Row: 12, 2, 翡翠福豆吊坠 四季平安, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-14 14:00:00, 2026-06-13 10:00:00, 2026-06-18 16:28:25
+<==        Row: 11, 1, 玻璃种翡翠叶子吊坠 起光起胶, <<BLOB>>, <<BLOB>>, 120000.00, PUBLISHED, 2026-06-14 09:30:00, 2026-06-13 15:00:00, 2026-06-18 16:28:25
+<==        Row: 10, 2, 冰种翡翠观音吊坠 手工精雕, <<BLOB>>, <<BLOB>>, 55000.00, PUBLISHED, 2026-06-13 11:00:00, 2026-06-12 09:00:00, 2026-06-18 16:28:25
+<==        Row: 3, 2, 冰种翡翠平安扣 饱满厚装, <<BLOB>>, <<BLOB>>, 18000.00, PUBLISHED, 2026-06-13 08:30:00, 2026-06-12 11:20:00, 2026-06-17 14:08:59
+<==        Row: 6, 2, 冰种翡翠吊坠 葫芦造型 福禄双全, <<BLOB>>, <<BLOB>>, 25000.00, PUBLISHED, 2026-06-12 09:45:00, 2026-06-11 17:00:00, 2026-06-17 14:08:59
+<==        Row: 9, 1, 飘花翡翠手镯 圆条款 58圈口, <<BLOB>>, <<BLOB>>, 35000.00, PUBLISHED, 2026-06-12 08:30:00, 2026-06-11 16:00:00, 2026-06-18 16:28:25
+<==        Row: 8, 2, 糯种紫罗兰翡翠手镯 贵妃款, <<BLOB>>, <<BLOB>>, 28000.00, PUBLISHED, 2026-06-11 10:00:00, 2026-06-09 11:00:00, 2026-06-18 16:28:25
+<==        Row: 7, 1, 冰种正圈翡翠手镯 57圈口, <<BLOB>>, <<BLOB>>, 68000.00, PUBLISHED, 2026-06-10 09:00:00, 2026-06-08 14:00:00, 2026-06-18 16:28:25
+<==      Total: 25
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79c75220]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f0bf916] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@211739781 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 44(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 346, 44, 翡翠, 0
+<==        Row: 347, 44, 黄翡, 1
+<==        Row: 348, 44, 挂件, 2
+<==        Row: 349, 44, 手工雕, 3
+<==        Row: 350, 44, 送礼, 4
+<==        Row: 351, 44, 艺术创作, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f0bf916]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b239662] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@728763225 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 41(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 332, 41, 挂件, 0
+<==        Row: 333, 41, 观音, 1
+<==        Row: 334, 41, 黄翡, 2
+<==        Row: 335, 41, 手工雕, 3
+<==        Row: 336, 41, 保平安, 4
+<==        Row: 337, 41, 收藏, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b239662]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33cc2f0d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@352010128 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 40(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 328, 40, 摆件, 0
+<==        Row: 329, 40, 送礼, 1
+<==        Row: 330, 40, 收藏级, 2
+<==        Row: 331, 40, 艺术创作, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33cc2f0d]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64d3b98c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@909461084 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 39(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 322, 39, 挂件, 0
+<==        Row: 323, 39, 观音, 1
+<==        Row: 324, 39, 手工雕, 2
+<==        Row: 325, 39, 翡翠, 3
+<==        Row: 326, 39, 保平安, 4
+<==        Row: 327, 39, 收藏级, 5
+<==      Total: 6
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64d3b98c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12c8c523] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1798181167 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 20(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 228, 20, 墨翠, 0
+<==        Row: 229, 20, 貔貅, 1
+<==        Row: 230, 20, 挂件, 2
+<==        Row: 231, 20, 招财, 3
+<==        Row: 232, 20, 打灯透绿, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12c8c523]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@738b49a3] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@666794796 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 38(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 319, 38, 手工雕, 0
+<==        Row: 320, 38, 艺术创作, 1
+<==        Row: 321, 38, 收藏级, 2
+<==      Total: 3
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@738b49a3]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6600d390] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1341085858 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 22(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 238, 22, 冰种, 0
+<==        Row: 239, 22, 白菜, 1
+<==        Row: 240, 22, 摆件, 2
+<==        Row: 241, 22, 百财, 3
+<==        Row: 242, 22, 招财, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6600d390]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@327b69c7] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1376231499 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 21(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 233, 21, 蓝水, 0
+<==        Row: 234, 21, 龙牌, 1
+<==        Row: 235, 21, 挂件, 2
+<==        Row: 236, 21, 冰种, 3
+<==        Row: 237, 21, 浮雕, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@327b69c7]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd59e07] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1946810667 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 18(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 219, 18, 冰种, 0
+<==        Row: 220, 18, 耳坠, 1
+<==        Row: 221, 18, 水滴形, 2
+<==        Row: 222, 18, 18K金, 3
+<==        Row: 223, 18, 钻石, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd59e07]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a1d9654] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@193528502 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 2(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 97, 2, 帝王绿, 0
+<==        Row: 98, 2, 戒面, 1
+<==        Row: 99, 2, 蛋面, 2
+<==        Row: 100, 2, 镶嵌, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a1d9654]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33c29598] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1698372226 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 19(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 224, 19, 春带彩, 0
+<==        Row: 225, 19, 如意, 1
+<==        Row: 226, 19, 挂件, 2
+<==        Row: 227, 19, 紫加绿, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33c29598]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@527d6ba] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@586087891 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 17(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 214, 17, 糯种, 0
+<==        Row: 215, 17, 手链, 1
+<==        Row: 216, 17, 黄翡, 2
+<==        Row: 217, 17, 招财, 3
+<==        Row: 218, 17, 圆珠, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@527d6ba]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@181e9ae0] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@590814559 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 1(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 93, 1, 冰种, 0
+<==        Row: 94, 1, 手镯, 1
+<==        Row: 95, 1, 飘花, 2
+<==        Row: 96, 1, 58圈口, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@181e9ae0]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9418269] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1709490235 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 16(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 209, 16, 冰种, 0
+<==        Row: 210, 16, 手链, 1
+<==        Row: 211, 16, 圆珠, 2
+<==        Row: 212, 16, 白冰, 3
+<==        Row: 213, 16, 18K金, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9418269]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b416962] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@513209001 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 13(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 195, 13, 帝王绿, 0
+<==        Row: 196, 13, 戒面, 1
+<==        Row: 197, 13, 蛋面, 2
+<==        Row: 198, 13, 收藏级, 3
+<==        Row: 199, 13, 强荧光, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b416962]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345a98df] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@608234831 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 15(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 205, 15, 冰种, 0
+<==        Row: 206, 15, 平安扣, 1
+<==        Row: 207, 15, 送礼, 2
+<==        Row: 208, 15, 飘绿, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@345a98df]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50e5dffd] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@815348062 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 14(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 200, 14, 冰种, 0
+<==        Row: 201, 14, 戒面, 1
+<==        Row: 202, 14, 阳绿, 2
+<==        Row: 203, 14, 一对, 3
+<==        Row: 204, 14, 耳坠料, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50e5dffd]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c239ec1] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@851950223 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 12(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 190, 12, 冰糯种, 0
+<==        Row: 191, 12, 福豆, 1
+<==        Row: 192, 12, 吊坠, 2
+<==        Row: 193, 12, 阳绿, 3
+<==        Row: 194, 12, 四季平安, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c239ec1]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c6e9382] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@216779608 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 11(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 185, 11, 玻璃种, 0
+<==        Row: 186, 11, 叶子, 1
+<==        Row: 187, 11, 吊坠, 2
+<==        Row: 188, 11, 起光起胶, 3
+<==        Row: 189, 11, 高货, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c6e9382]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@218ae290] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@164665248 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 10(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 180, 10, 冰种, 0
+<==        Row: 181, 10, 观音, 1
+<==        Row: 182, 10, 吊坠, 2
+<==        Row: 183, 10, 手工雕, 3
+<==        Row: 184, 10, 保平安, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@218ae290]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6023577c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@382449546 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 3(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 101, 3, 冰种, 0
+<==        Row: 102, 3, 平安扣, 1
+<==        Row: 103, 3, 挂件, 2
+<==        Row: 104, 3, 送礼, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6023577c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@593c6dac] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@593381696 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 6(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 112, 6, 冰种, 0
+<==        Row: 113, 6, 吊坠, 1
+<==        Row: 114, 6, 葫芦, 2
+<==        Row: 115, 6, 送礼, 3
+<==      Total: 4
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@593c6dac]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2973ef41] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@328771278 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 9(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 175, 9, 糯冰种, 0
+<==        Row: 176, 9, 手镯, 1
+<==        Row: 177, 9, 圆条, 2
+<==        Row: 178, 9, 飘花, 3
+<==        Row: 179, 9, 58圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2973ef41]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2b8454] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@169110903 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 8(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 170, 8, 糯种, 0
+<==        Row: 171, 8, 手镯, 1
+<==        Row: 172, 8, 贵妃款, 2
+<==        Row: 173, 8, 紫罗兰, 3
+<==        Row: 174, 8, 56圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2b8454]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d1464d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@297297159 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags WHERE (product_id = ?)
+==> Parameters: 7(Long)
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 165, 7, 冰种, 0
+<==        Row: 166, 7, 手镯, 1
+<==        Row: 167, 7, 正圈, 2
+<==        Row: 168, 7, 飘绿花, 3
+<==        Row: 169, 7, 57圈口, 4
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71d1464d]
+2026-06-23T22:22:57.099+08:00  INFO 21168 --- [onPool-worker-1] com.gaocui.service.MysqlSearchService    : MySQL搜索: keyword=10万预算帝王绿手镯, total=0, returned=0
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7270f6f0] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@270794431 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: INSERT INTO jade_demands ( session_id, user_message, demand_title, demand_description, demand_detail, tags, specs, es_keyword, es_tags, match_count ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: b1e69c90-f7de-4a24-9996-b6dd1651ddda(String), 10万预算 帝王绿手镯(String), 10万预算帝王绿手镯需求(String), 需要10万预算的帝王绿手镯类翡翠商品(String), 预算10万元，寻找品质符合要求的帝王绿手镯翡翠商品(String), ["帝王绿","手镯"](String), {"产品品类":"手镯","核心卖点":"帝王绿","主石材质":"翡翠","翡翠颜色":"帝王绿","翡翠造型":"","配石材质":"","镶嵌工艺":"","瑕疵情况":"","款式风格":"","适用场景":"","产品寓意":"","镶嵌材质":"","镶嵌配件":"","尺寸规格":""}(String), 10万预算帝王绿手镯(String), 帝王绿,手镯(String), 0(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7270f6f0]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eace0c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@554957212 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: INSERT INTO chat_history ( session_id, role, content ) VALUES ( ?, ?, ? )
+==> Parameters: b1e69c90-f7de-4a24-9996-b6dd1651ddda(String), user(String), 10万预算 帝王绿手镯(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eace0c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21615dba] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@520130323 wrapping com.mysql.cj.jdbc.ConnectionImpl@2de96eba] will not be managed by Spring
+==>  Preparing: INSERT INTO chat_history ( session_id, role, content ) VALUES ( ?, ?, ? )
+==> Parameters: b1e69c90-f7de-4a24-9996-b6dd1651ddda(String), ai(String), 正在为您查找10万预算的帝王绿手镯相关商品~(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21615dba]

@@ -2,10 +2,12 @@ package com.gaocui.controller;
 
 import com.gaocui.common.Result;
 import com.gaocui.service.ProductSearchService;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@ConditionalOnProperty(name = "gaocui.search.mode", havingValue = "elasticsearch")
 public class EsController {
 
     private final ProductSearchService searchService;

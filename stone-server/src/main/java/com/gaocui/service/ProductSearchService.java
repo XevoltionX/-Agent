@@ -16,6 +16,7 @@ import com.gaocui.mapper.ProductImageMapper;
 import com.gaocui.mapper.ProductMapper;
 import com.gaocui.mapper.ProductTagMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@ConditionalOnProperty(name = "gaocui.search.mode", havingValue = "elasticsearch")
 public class ProductSearchService {
 
     private static final String INDEX_NAME = "gaocui_products";

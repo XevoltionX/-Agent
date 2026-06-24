@@ -1,0 +1,69 @@
+#这里只是把官网示例的接口文档放在这里,虽然是以curl的格式,但是拼的url严格参考以下格式
+#且可用的模型为doubao-seed-2-1-pro-260628
+#流式输出stream要打开注意
+#和千问不同的是豆包的模型的图片理解只能通过Base64的方式传输且在{"type": "image_url","image_url": {"url": "data:image/png;base64,$BASE64_IMAGE"}},中'data'的值'image/png'只能是'image/png'和'image/jpeg'
+
+
+#默认
+curl https://ark.cn-beijing.volces.com/api/v3/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ARK_API_KEY" \
+  -d '{
+    "model": "doubao-seed-2-1-pro-260628",
+    "messages": [
+        {"role": "user", "content": "请将下面内容进行结构化处理：火山方舟是火山引擎推出的大模型服务平台，提供模型训练、推理、评测、精调等全方位功能与服务，并重点支撑大模型生态。 火山方舟通过稳定可靠的安全互信方案，保障模型提供方的模型安全与模型使用者的信息安全，加速大模型能力渗透到千行百业，助力模型提供方和使用者实现商业新增长。"}
+    ],
+     "thinking":{
+         "type":"disabled"
+     },
+     "stream": true
+  }'
+
+#图像理解
+BASE64_IMAGE=$(base64 < demo.png) && curl https://ark.cn-beijing.volces.com/api/v3/chat/completions \
+   -H "Content-Type: application/json"  \
+   -H "Authorization: Bearer $ARK_API_KEY"  \
+   -d @- <<EOF
+   {
+    "model": "doubao-seed-2-1-pro-260628",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,$BASE64_IMAGE"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Which model series supports image input?"
+          }
+        ]
+      }
+    ],
+    "max_tokens": 300
+  }
+EOF
+
+#多图像输入
+curl https://ark.cn-beijing.volces.com/api/v3/chat/completions \
+   -H "Content-Type: application/json"  \
+   -H "Authorization: Bearer $ARK_API_KEY"  \
+   -d '{
+    "model": "doubao-seed-2-1-pro-260628",
+    "messages": [
+        {
+            "role": "user",
+            "content": [                
+                {"type": "image_url","image_url": {"url": "data:image/png;base64,$BASE64_IMAGE"}},
+                {"type": "image_url","image_url": {"url": "data:image/png;base64,$BASE64_IMAGE"}},
+                {"type": "text", "text": "支持输入图片的模型系列是哪个？同时，豆包应用场景有哪些？"}
+            ]
+        }
+    ],
+    "max_tokens": 300
+  }'
+
+

@@ -64,29 +64,16 @@ const isAtLimit = computed(() => {
 })
 
 const goNext = async () => {
-  if (images.value.length === 0) {
-    showToast('请上传至少一张商品图片')
-    return
-  }
+  if (images.value.length === 0) { showToast('请上传至少一张商品图片'); return }
+  // 总量不超过60MB
+  let totalSize = 0
+  for (const img of images.value) { totalSize += img.length }
+  if (totalSize > 60_000_000) { showToast('所有图片总大小不能超过60MB'); return }
   if (!checkPublishLimit(usedCount.value)) return
 
-  // 上传图片到千问临时存储
-  showToast('正在上传图片...')
-  const ossUrls = []
-  for (const img of images.value) {
-    try {
-      const res = await api.post('/upload/base64', { image: img })
-      if (res.data?.url) ossUrls.push(res.data.url)
-    } catch (e) {
-      showToast('图片上传失败')
-      return
-    }
-  }
-
-  // 保存base64（前端展示）+ oss://URL（AI识别用）
+  // 保存base64（前端展示+豆包AI识别用）
   productStore.setDraft({
     images: images.value,
-    ossUrls: ossUrls,
     title: '', description: '', detail: '', price: '', tags: []
   })
   router.push('/merchant/publish/ai')

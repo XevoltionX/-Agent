@@ -36,6 +36,8 @@ public class UploadController {
         String base64 = body.get("image");
         String model = body.getOrDefault("model", "qwen-vl-plus");
         if (base64 == null || base64.isEmpty()) return Result.fail(400, "图片数据为空");
+        // 8MB限制
+        if (base64.length() > 11_000_000) return Result.fail(400, "图片不能超过8MB");
 
         try {
             // data:image/png;base64,xxxx → 取base64部分

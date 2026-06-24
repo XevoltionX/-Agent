@@ -67,17 +67,23 @@ const productStore = useProductStore()
 const draft = computed(() => productStore.draftProduct)
 const statusText = ref('AI生成中')
 
-// 调用VL生成
+// 调用豆包VL生成（base64）
 const generate = async () => {
-  const ossUrls = productStore.draftProduct?.ossUrls
-  if (!ossUrls || ossUrls.length === 0) {
+  const images = productStore.draftProduct?.images
+  if (!images || images.length === 0) {
     statusText.value = '重新生成'
     return
   }
   try {
-    const res = await api.post('/ai/recognize', { imageUrl: ossUrls[0] })
+    const res = await api.post('/ai/recognize', { imageUrl: images[0] }, { timeout: 120000 })
     const data = res.data || {}
     statusText.value = '重新生成'
+    // price=0 → 非翡翠或图片不一致
+    if (!data.price || data.price == 0) {
+      showToast('识别失败，图片可能非翡翠或非同一商品，请重新上传')
+      setTimeout(() => router.push('/merchant/publish'), 1000)
+      return
+    }
     if (productStore.draftProduct) {
       productStore.setDraft({
         ...productStore.draftProduct,

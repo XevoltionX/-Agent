@@ -47,6 +47,8 @@ const onFileChange = (e) => {
     return
   }
   files.forEach(file => {
+    // 8MB过滤
+    if (file.size > 8 * 1024 * 1024) { showToast('图片不能超过8MB'); return }
     const reader = new FileReader()
     reader.onload = (ev) => {
       images.value = [...images.value, ev.target.result]

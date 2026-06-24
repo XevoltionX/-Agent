@@ -6,6 +6,7 @@ import com.gaocui.dto.PublishProductDTO;
 import com.gaocui.entity.*;
 import com.gaocui.enums.ProductStatus;
 import com.gaocui.mapper.*;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,14 +21,14 @@ public class ProductService {
     private final ProductMapper productMapper;
     private final ProductImageMapper imageMapper;
     private final ProductTagMapper tagMapper;
-    private final ProductSearchService searchService;  // nullable for now
+    private final ProductSearchService searchService;  // mysql模式时为null
 
     public ProductService(ProductMapper productMapper, ProductImageMapper imageMapper,
-                          ProductTagMapper tagMapper, ProductSearchService searchService) {
+                          ProductTagMapper tagMapper, ObjectProvider<ProductSearchService> searchServiceProvider) {
         this.productMapper = productMapper;
         this.imageMapper = imageMapper;
         this.tagMapper = tagMapper;
-        this.searchService = searchService;
+        this.searchService = searchServiceProvider.getIfAvailable();
     }
 
     private static final int VIP_MAX = 100;
@@ -157,7 +158,7 @@ public class ProductService {
         productMapper.deleteById(id);
         imageMapper.delete(new LambdaQueryWrapper<ProductImage>().eq(ProductImage::getProductId, id));
         tagMapper.delete(new LambdaQueryWrapper<ProductTag>().eq(ProductTag::getProductId, id));
-        try { searchService.deleteProduct(id); } catch (Exception ignored) {}
+        if (searchService != null) { try { searchService.deleteProduct(id); } catch (Exception ignored) {} }
     }
 
     public void updateStatus(Long id, String status) {
@@ -172,6 +173,7 @@ public class ProductService {
     }
 
     private void syncToEs(Product p) {
+        if (searchService == null) return;
         try {
             if (ProductStatus.PUBLISHED.name().equals(p.getStatus())) {
                 List<String> images = imageMapper.selectList(

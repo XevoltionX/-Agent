@@ -36,7 +36,7 @@ export function useSSE() {
                 if (line.startsWith('event:')) {
                   eventType = line.slice(6).trim()
                 } else if (line.startsWith('data:')) {
-                  data = line.slice(5).trim()
+                  data = line.slice(5)  // 完全不trim
                 }
               }
               if (data) handleEvent(eventType, data, callbacks)

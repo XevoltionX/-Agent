@@ -13,10 +13,12 @@ public class LLMClientFactory {
 
     private final DeepSeekClient deepSeekClient;
     private final QwenClient qwenClient;
+    private final DoubaoClient doubaoClient;
 
-    public LLMClientFactory(DeepSeekClient deepSeekClient, QwenClient qwenClient) {
+    public LLMClientFactory(DeepSeekClient deepSeekClient, QwenClient qwenClient, DoubaoClient doubaoClient) {
         this.deepSeekClient = deepSeekClient;
         this.qwenClient = qwenClient;
+        this.doubaoClient = doubaoClient;
     }
 
     /** 默认文字模型：DeepSeek */
@@ -34,6 +36,8 @@ public class LLMClientFactory {
         return qwenClient;
     }
 
+    /** AI匹配+图片识别：豆包 */
+    public DoubaoClient getDoubao() { return doubaoClient; }
     public DeepSeekClient getDeepSeek() { return deepSeekClient; }
     public QwenClient getQwen() { return qwenClient; }
 }

@@ -19,6 +19,7 @@ export default defineConfig({
   server: {
     port: 5173,
     host: '0.0.0.0',
+    allowedHosts: ['bigbird.icu', 'xjx.nat100.top', 'w5eb465a.natappfree.cc'],
     proxy: {
       '/api': {
         target: 'http://localhost:8080',

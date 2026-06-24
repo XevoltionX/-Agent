@@ -5,6 +5,7 @@ import com.gaocui.dto.ChatRequestDTO;
 import com.gaocui.entity.ChatHistory;
 import com.gaocui.mapper.ChatHistoryMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,17 +16,21 @@ import java.util.*;
 @Service
 public class ChatService {
 
-    private final ProductSearchService searchService;
+    private final ProductSearchService searchService;   // ES（可能为null，当mysql模式）
+    private final MysqlSearchService mysqlSearch;        // MySQL
     private final ChatHistoryMapper historyMapper;
+    @org.springframework.beans.factory.annotation.Value("${gaocui.search.mode:mysql}")
+    private String searchMode;
     private final com.gaocui.mapper.JadeDemandMapper demandMapper;
     private final com.gaocui.mapper.ProductTagMapper tagMapper;
     private final RedisSearchCache cacheService;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public ChatService(ProductSearchService searchService, ChatHistoryMapper historyMapper,
+    public ChatService(ObjectProvider<ProductSearchService> searchServiceProvider, ChatHistoryMapper historyMapper,
                        com.gaocui.mapper.JadeDemandMapper demandMapper, com.gaocui.mapper.ProductTagMapper tagMapper,
-                       RedisSearchCache cacheService) {
-        this.searchService = searchService;
+                       RedisSearchCache cacheService, MysqlSearchService mysqlSearch) {
+        this.searchService = searchServiceProvider.getIfAvailable();  // mysql模式时为null
+        this.mysqlSearch = mysqlSearch;
         this.historyMapper = historyMapper;
         this.demandMapper = demandMapper;
         this.tagMapper = tagMapper;
@@ -48,10 +53,10 @@ public class ChatService {
         // 保存用户消息（只存文本）
         saveHistory(sessionId, "user", message);
 
-        // ES搜索
+        // 搜索
         log.info("ChatService收到消息: {}", message);
-        Map<String, Object> searchResult = searchService.search(message, null, 1, 3);
-        log.info("ES搜索结果: total={}", searchResult != null ? searchResult.get("total") : "null");
+        Map<String, Object> searchResult = searchWithTags(message, null);
+        log.info("搜索结果: total={}", searchResult != null ? searchResult.get("total") : "null");
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> matched = searchResult != null ? (List<Map<String, Object>>) searchResult.get("list") : Collections.emptyList();
 
@@ -103,11 +108,19 @@ public class ChatService {
     }
 
     public Map<String, Object> searchOnly(String keyword) {
-        return searchService.search(keyword, null, 1, 3);
+        if ("elasticsearch".equals(searchMode) && searchService != null) return searchService.search(keyword, null, 1, 3);
+        return mysqlSearch.search(keyword, null, 1, 3, keyword);
     }
 
     public Map<String, Object> searchWithTags(String keyword, String tags) {
-        return searchService.search(keyword, tags, 1, 3);
+        if ("elasticsearch".equals(searchMode) && searchService != null) return searchService.search(keyword, tags, 1, 3);
+        return mysqlSearch.search(keyword, tags, 1, 3, keyword);
+    }
+
+    // 带预算的搜索（budgetText=用户原始输入）
+    public Map<String, Object> searchWithBudget(String keyword, String tags, String budgetText) {
+        if ("elasticsearch".equals(searchMode) && searchService != null) return searchService.search(keyword, tags, 1, 3);
+        return mysqlSearch.search(keyword, tags, 1, 3, budgetText);
     }
 
     // 保存Agent需求分析
@@ -149,12 +162,14 @@ public class ChatService {
         if (cards != null && !cards.isEmpty()) { cacheService.cacheResults(cards); cacheService.incrementProductHit(cards); }
     }
 
-    // 获取所有已有标签（供Agent参考）
+    // 获取前100高频标签（供Agent/VL参考）
     public String getAllTags() {
         try {
-            java.util.List<com.gaocui.entity.ProductTag> all = tagMapper.selectList(null);
-            if (all == null || all.isEmpty()) return "";
-            return all.stream().map(com.gaocui.entity.ProductTag::getTagName).distinct().limit(80).collect(java.util.stream.Collectors.joining("、"));
+            java.util.List<java.util.Map<String, Object>> topTags = tagMapper.getTopTags(100);
+            if (topTags == null || topTags.isEmpty()) return "";
+            return topTags.stream()
+                .map(m -> (String) m.get("tag_name"))
+                .collect(java.util.stream.Collectors.joining("、"));
         } catch (Exception e) { return ""; }
     }
 

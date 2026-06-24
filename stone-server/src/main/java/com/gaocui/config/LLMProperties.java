@@ -19,4 +19,9 @@ public class LLMProperties {
     private String qwenBaseUrl = "https://dashscope.aliyuncs.com/compatible-mode/v1";  // 不含尾/chat/completions
     private String qwenModel = "qwen-plus";
     private String qwenVisionModel = "qwen-vl-plus";
+
+    // 豆包（AI匹配+图片识别主力）
+    private String doubaoApiKey = "";
+    private String doubaoBaseUrl = "https://ark.cn-beijing.volces.com/api/v3";
+    private String doubaoModel = "doubao-seed-2-1-pro-260628";
 }

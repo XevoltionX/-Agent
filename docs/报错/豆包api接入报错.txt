@@ -1,0 +1,141 @@
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52935379] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1164796996 wrapping com.mysql.cj.jdbc.ConnectionImpl@464d60fb] will not be managed by Spring
+==>  Preparing: SELECT id,product_id,tag_name,sort_order FROM product_tags
+==> Parameters: 
+<==    Columns: id, product_id, tag_name, sort_order
+<==        Row: 93, 1, 冰种, 0
+<==        Row: 94, 1, 手镯, 1
+<==        Row: 95, 1, 飘花, 2
+<==        Row: 96, 1, 58圈口, 3
+<==        Row: 97, 2, 帝王绿, 0
+<==        Row: 98, 2, 戒面, 1
+<==        Row: 99, 2, 蛋面, 2
+<==        Row: 100, 2, 镶嵌, 3
+<==        Row: 101, 3, 冰种, 0
+<==        Row: 102, 3, 平安扣, 1
+<==        Row: 103, 3, 挂件, 2
+<==        Row: 104, 3, 送礼, 3
+<==        Row: 108, 5, 玻璃种, 0
+<==        Row: 109, 5, 叶子, 1
+<==        Row: 110, 5, 挂件, 2
+<==        Row: 111, 5, 高货, 3
+<==        Row: 112, 6, 冰种, 0
+<==        Row: 113, 6, 吊坠, 1
+<==        Row: 114, 6, 葫芦, 2
+<==        Row: 115, 6, 送礼, 3
+<==        Row: 165, 7, 冰种, 0
+<==        Row: 166, 7, 手镯, 1
+<==        Row: 167, 7, 正圈, 2
+<==        Row: 168, 7, 飘绿花, 3
+<==        Row: 169, 7, 57圈口, 4
+<==        Row: 170, 8, 糯种, 0
+<==        Row: 171, 8, 手镯, 1
+<==        Row: 172, 8, 贵妃款, 2
+<==        Row: 173, 8, 紫罗兰, 3
+<==        Row: 174, 8, 56圈口, 4
+<==        Row: 175, 9, 糯冰种, 0
+<==        Row: 176, 9, 手镯, 1
+<==        Row: 177, 9, 圆条, 2
+<==        Row: 178, 9, 飘花, 3
+<==        Row: 179, 9, 58圈口, 4
+<==        Row: 180, 10, 冰种, 0
+<==        Row: 181, 10, 观音, 1
+<==        Row: 182, 10, 吊坠, 2
+<==        Row: 183, 10, 手工雕, 3
+<==        Row: 184, 10, 保平安, 4
+<==        Row: 185, 11, 玻璃种, 0
+<==        Row: 186, 11, 叶子, 1
+<==        Row: 187, 11, 吊坠, 2
+<==        Row: 188, 11, 起光起胶, 3
+<==        Row: 189, 11, 高货, 4
+<==        Row: 190, 12, 冰糯种, 0
+<==        Row: 191, 12, 福豆, 1
+<==        Row: 192, 12, 吊坠, 2
+<==        Row: 193, 12, 阳绿, 3
+<==        Row: 194, 12, 四季平安, 4
+<==        Row: 195, 13, 帝王绿, 0
+<==        Row: 196, 13, 戒面, 1
+<==        Row: 197, 13, 蛋面, 2
+<==        Row: 198, 13, 收藏级, 3
+<==        Row: 199, 13, 强荧光, 4
+<==        Row: 200, 14, 冰种, 0
+<==        Row: 201, 14, 戒面, 1
+<==        Row: 202, 14, 阳绿, 2
+<==        Row: 203, 14, 一对, 3
+<==        Row: 204, 14, 耳坠料, 4
+<==        Row: 205, 15, 冰种, 0
+<==        Row: 206, 15, 平安扣, 1
+<==        Row: 207, 15, 送礼, 2
+<==        Row: 208, 15, 飘绿, 3
+<==        Row: 209, 16, 冰种, 0
+<==        Row: 210, 16, 手链, 1
+<==        Row: 211, 16, 圆珠, 2
+<==        Row: 212, 16, 白冰, 3
+<==        Row: 213, 16, 18K金, 4
+<==        Row: 214, 17, 糯种, 0
+<==        Row: 215, 17, 手链, 1
+<==        Row: 216, 17, 黄翡, 2
+<==        Row: 217, 17, 招财, 3
+<==        Row: 218, 17, 圆珠, 4
+<==        Row: 219, 18, 冰种, 0
+<==        Row: 220, 18, 耳坠, 1
+<==        Row: 221, 18, 水滴形, 2
+<==        Row: 222, 18, 18K金, 3
+<==        Row: 223, 18, 钻石, 4
+<==        Row: 224, 19, 春带彩, 0
+<==        Row: 225, 19, 如意, 1
+<==        Row: 226, 19, 挂件, 2
+<==        Row: 227, 19, 紫加绿, 3
+<==        Row: 228, 20, 墨翠, 0
+<==        Row: 229, 20, 貔貅, 1
+<==        Row: 230, 20, 挂件, 2
+<==        Row: 231, 20, 招财, 3
+<==        Row: 232, 20, 打灯透绿, 4
+<==        Row: 233, 21, 蓝水, 0
+<==        Row: 234, 21, 龙牌, 1
+<==        Row: 235, 21, 挂件, 2
+<==        Row: 236, 21, 冰种, 3
+<==        Row: 237, 21, 浮雕, 4
+<==        Row: 238, 22, 冰种, 0
+<==        Row: 239, 22, 白菜, 1
+<==        Row: 240, 22, 摆件, 2
+<==        Row: 241, 22, 百财, 3
+<==        Row: 242, 22, 招财, 4
+<==        Row: 319, 38, 手工雕, 0
+<==        Row: 320, 38, 艺术创作, 1
+<==        Row: 321, 38, 收藏级, 2
+<==        Row: 322, 39, 挂件, 0
+<==        Row: 323, 39, 观音, 1
+<==        Row: 324, 39, 手工雕, 2
+<==        Row: 325, 39, 翡翠, 3
+<==        Row: 326, 39, 保平安, 4
+<==        Row: 327, 39, 收藏级, 5
+<==        Row: 328, 40, 摆件, 0
+<==        Row: 329, 40, 送礼, 1
+<==        Row: 330, 40, 收藏级, 2
+<==        Row: 331, 40, 艺术创作, 3
+<==        Row: 332, 41, 挂件, 0
+<==        Row: 333, 41, 观音, 1
+<==        Row: 334, 41, 黄翡, 2
+<==        Row: 335, 41, 手工雕, 3
+<==        Row: 336, 41, 保平安, 4
+<==        Row: 337, 41, 收藏, 5
+<==      Total: 117
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52935379]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54484aee] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@911858100 wrapping com.mysql.cj.jdbc.ConnectionImpl@464d60fb] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM jade_demands WHERE (session_id = ?)
+==> Parameters: 9a9f4875-0425-4817-82bf-aeb26779ba0a(String)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54484aee]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@585c949e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@633506552 wrapping com.mysql.cj.jdbc.ConnectionImpl@464d60fb] will not be managed by Spring
+==>  Preparing: SELECT id,session_id,role,content,cards,merchant_id,created_at FROM chat_history WHERE (session_id = ?) ORDER BY id ASC LIMIT 6
+==> Parameters: 9a9f4875-0425-4817-82bf-aeb26779ba0a(String)
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@585c949e]
